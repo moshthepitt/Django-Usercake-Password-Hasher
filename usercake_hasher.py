@@ -23,6 +23,19 @@ class UserCakePasswordHasher(BasePasswordHasher):
         h.verify("123456789", r)
         >>>>True
 
+
+        To use, put this in any app and add to your settings.py, something like this:
+
+        PASSWORD_HASHERS = (
+            'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+            'myproject.myapp.usercake_hasher.UserCakePasswordHasher',
+            'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+            'django.contrib.auth.hashers.BCryptPasswordHasher',
+            'django.contrib.auth.hashers.SHA1PasswordHasher',
+            'django.contrib.auth.hashers.MD5PasswordHasher',
+            'django.contrib.auth.hashers.CryptPasswordHasher',
+        )
+
     """
     algorithm = "usercake"
 
